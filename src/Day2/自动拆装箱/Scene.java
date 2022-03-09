@@ -69,5 +69,5 @@ java装包时调用的缓存池的代码
         return new Integer(i);
     }
 */
-
+//POJO类属性和RPC方法的返回值和参数都使用Boolean success,局部变量使用boolean success
 
