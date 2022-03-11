@@ -1,0 +1,75 @@
+1.private transient Object[] elementData;
+  简单点说，就是被transient修饰的成员变量，在序列化的时候其值会被忽略，在被反序列化后， transient 变量的值被设为初始值， 如 int 型的是 0，对象型的是 null。
+
+
+2.public static void displayObjectClass(Object o) {
+    if (o instanceof Vector)
+       System.out.println("对象是 java.util.Vector 类的实例");
+    else if (o instanceof ArrayList)
+       System.out.println("对象是 java.util.ArrayList 类的实例");
+    else
+      System.out.println("对象是 " + o.getClass() + " 类的实例");
+  instanceof 是 Java 的保留关键字。它的作用是测试它左边的对象是否是它右边的类的实例，返回 boolean 的数据类型。
+
+3.final变量
+  如果将变量设置为final，则不能更改final变量的值(它将是常量)。
+
+  class Test{
+       final String name = "Hollis";
+
+  }
+
+  一旦final变量被定义之后，是无法进行修改的。
+
+  final方法
+  如果任何方法声明为final，则不能覆盖它。
+
+  class Parent {
+      final void name() {
+          System.out.println("Hollis");
+      }
+  }
+
+  当我们定义以上类的子类的时候，无法覆盖其name方法，会编译失败。
+
+  final类
+  如果把任何一个类声明为final，则不能继承它。
+
+  final class Parent {
+
+  }
+
+  以上类不能被继承！
+
+4.static
+
+  static表示“静态”的意思，用来修饰成员变量和成员方法，也可以形成静态static代码块
+
+  静态变量
+  我们用static表示变量的级别，一个类中的静态变量，不属于类的对象或者实例。因为静态变量与所有的对象实例共享，因此他们不具线程安全性。
+
+  通常，静态变量常用final关键来修饰，表示通用资源或可以被所有的对象所使用。如果静态变量未被私有化，可以用“类名.变量名”的方式来使用。
+
+  //static variable example
+  private static int count;
+  public static String str;
+
+  静态方法
+  与静态变量一样，静态方法是属于类而不是实例。
+
+  一个静态方法只能使用静态变量和调用静态方法。通常静态方法通常用于想给其他的类使用而不需要创建实例。例如：Collections class(类集合)。
+
+  Java的包装类和实用类包含许多静态方法。main()方法就是Java程序入口点，是静态方法。
+
+  //static method example
+  public static void setCount(int count) {
+      if(count &gt; 0)
+      StaticExample.count = count;
+  }
+
+  //static util method
+  public static int addInts(int i, int...js){
+      int sum=i;
+      for(int x : js) sum+=x;
+      return sum;
+  }

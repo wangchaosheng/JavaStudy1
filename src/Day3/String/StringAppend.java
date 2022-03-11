@@ -4,7 +4,10 @@ package Day3.String;
 
 public class StringAppend {
     public static void main(String[] args){
-        String wechat = "Tiger";
+        int i = 5;
+
+        String i2 = String.valueOf(i);//将其他类型的数据强转为String类型
+        String wechat = "Tiger";//在运行期，长度不能超过Int的范围，否则会抛异常。
         String introduce = "每天学一点的Java";
         String tiger = wechat+","+introduce;
         System.out.println(tiger);
